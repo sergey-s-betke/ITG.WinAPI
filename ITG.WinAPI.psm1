@@ -2,6 +2,9 @@
 
 using System; 
 using System.Runtime.InteropServices; 
+
+namespace ITG {
+
 public class WinAPI { 
 	
 	// http://msdn.microsoft.com/en-us/library/windows/desktop/ms633545(v=vs.85).aspx
@@ -31,6 +34,8 @@ public class WinAPI {
 	);
 
 } 
+
+}
 
 "@;
 
