@@ -20,5 +20,5 @@ Import-Module `
         -childPath $_ `
     ) `
 } `
-| Get-MIME `
+| Get-MIME -ErrorAction Continue `
 ;

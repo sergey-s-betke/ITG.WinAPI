@@ -22,9 +22,9 @@ class API {
 // http://www.rsdn.ru/article/dotnet/netTocom.xml
 
 [DllImport(
-    "urlmon.dll",
-    CharSet=CharSet.Unicode,
-    SetLastError=true
+    "urlmon.dll"
+    , CharSet=CharSet.Unicode
+    , SetLastError=false
 )]
 public
 static
