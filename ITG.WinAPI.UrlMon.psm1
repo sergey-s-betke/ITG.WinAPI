@@ -71,21 +71,17 @@ function Get-MIME {
         } else {
             Write-Verbose "Определяем MIME тип файла по расширению его имени (файл $($Path.FullName) недоступен).";
         };
-        [System.UInt32] $mimeType = 0;
+        [string]$mime = '';
         $err = [ITG.WinAPI.UrlMon.API]::FindMimeFromData(
             0,
             $Path.FullName, 
             $buffer, 
             $length, 
             $null, 
-            [ITG.WinAPI.UrlMon.FMFD]::URLAsFileName -bor [ITG.WinAPI.UrlMon.FMFD]::RetrunUpdatedImgMIMEs, 
-            [ref]$mimeType, 
+            [ITG.WinAPI.UrlMon.FMFD]::URLAsFileName -bor [ITG.WinAPI.UrlMon.FMFD]::RetrunUpdatedImgMIMEs,
+            [ref]$mime, 
             0
         );
-
-        $mimeTypePtr = [System.IntPtr]$mimeType;
-        $mime = [System.Runtime.InteropServices.Marshal]::PtrToStringUni( $mimeTypePtr );
-        [System.Runtime.InteropServices.Marshal]::FreeCoTaskMem( $mimeTypePtr );
         $mime;
 	}
 }  

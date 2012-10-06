@@ -19,22 +19,26 @@ public
 class API {
 
 // http://msdn.microsoft.com/en-us/library/ms775107(VS.85).aspx
-// http://social.msdn.microsoft.com/Forums/en-US/Vsexpressvcs/thread/d79e76e3-b8c9-4fce-a97d-94ded18ea4dd
+// http://www.rsdn.ru/article/dotnet/netTocom.xml
 
-[DllImport("urlmon.dll", CharSet = CharSet.Auto)]
+[DllImport(
+    "urlmon.dll",
+    CharSet=CharSet.Unicode,
+    SetLastError=true
+)]
 public
 static
 extern
 System.UInt32 
 FindMimeFromData(
 	System.UInt32 pBC,
-	[MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzUrl,
-	[MarshalAs(UnmanagedType.LPArray)] byte[] pBuffer,
-	[MarshalAs(UnmanagedType.U4)] System.UInt32 cbSize,
-	[MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzMimeProposed,
-	[MarshalAs(UnmanagedType.U4)] System.UInt32 dwMimeFlags,
-	out System.UInt32 ppwzMimeOut,
-	[MarshalAs(UnmanagedType.U4)] System.UInt32 dwReserverd
+	[In, MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzUrl,
+	[In, MarshalAs(UnmanagedType.LPArray, SizeParamIndex=3)] byte[] pBuffer,
+	[In, MarshalAs(UnmanagedType.U4)] System.UInt32 cbSize,
+	[In, MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzMimeProposed,
+	[In, MarshalAs(UnmanagedType.U4)] System.UInt32 dwMimeFlags,
+	[Out, MarshalAs(UnmanagedType.LPWStr)] out String ppwzMimeOut,
+	[In, MarshalAs(UnmanagedType.U4)] System.UInt32 dwReserverd
 );
 
 }
