@@ -7,7 +7,7 @@ param ()
 Import-Module `
     (join-path `
         -path ( ( [System.IO.FileInfo] ( $myinvocation.mycommand.path ) ).directory ) `
-        -childPath 'ITG.WinAPI' `
+        -childPath 'ITG.WinAPI.UrlMon' `
     ) `
 	-Force `
 ;
@@ -41,7 +41,7 @@ if ( [System.IO.File]::Exists( $fileInfo ) ) {
 
 [System.UInt32] $mimeType = 0;
 
-$err = [ITG.WinAPI]::FindMimeFromData(
+$err = [ITG.WinAPI.UrlMon]::FindMimeFromData(
     0,
     $fileInfo.FullName, 
     $buffer, 
