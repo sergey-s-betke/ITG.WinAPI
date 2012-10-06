@@ -72,13 +72,13 @@ function Get-MIME {
             Write-Verbose "Определяем MIME тип файла по расширению его имени (файл $($Path.FullName) недоступен).";
         };
         [System.UInt32] $mimeType = 0;
-        $err = [ITG.WinAPI.UrlMon]::FindMimeFromData(
+        $err = [ITG.WinAPI.UrlMon.API]::FindMimeFromData(
             0,
             $Path.FullName, 
             $buffer, 
             $length, 
             $null, 
-            0x00000001 + 0x00000020, 
+            [ITG.WinAPI.UrlMon.FMFD]::URLAsFileName -bor [ITG.WinAPI.UrlMon.FMFD]::RetrunUpdatedImgMIMEs, 
             [ref]$mimeType, 
             0
         );
