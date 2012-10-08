@@ -1,0 +1,3 @@
+[submodule "ITG.WinAPI.UrlMon"]
+	path = ITG.WinAPI.UrlMon
+	url = git@github.com:sergey-s-betke/ITG.WinAPI.UrlMon.git

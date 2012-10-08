@@ -5,15 +5,15 @@
 param ()
 
 Import-Module `
-    (join-path `
-        -path ( ( [System.IO.FileInfo] ( $myinvocation.mycommand.path ) ).directory ) `
-        -childPath 'ITG.WinAPI.UrlMon' `
+	(Join-Path `
+        -Path ( ( [System.IO.FileInfo] ( $MyInvocation.MyCommand.Path ) ).Directory ) `
+        -ChildPath 'ITG.WinAPI' `
     ) `
 	-Force `
 ;
 
-'test\logo.jpg' `
-, 'test\logo2.jpg' `
+'ITG.WinAPI.UrlMon\test\logo.jpg' `
+, 'ITG.WinAPI.UrlMon\test\logo2.jpg' `
 | % {
     (join-path `
         -path ( ( [System.IO.FileInfo] ( $myinvocation.mycommand.path ) ).directory ) `
