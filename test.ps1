@@ -4,13 +4,14 @@
 )]
 param ()
 
-Import-Module `
-    (join-path `
-        -path ( ( [System.IO.FileInfo] ( $myinvocation.mycommand.path ) ).directory ) `
-        -childPath 'ITG.WinAPI.UrlMon' `
+. `
+	(Join-Path `
+        -Path ( ( [System.IO.FileInfo] ( $MyInvocation.MyCommand.Path ) ).Directory ) `
+        -ChildPath 'ITG.PrepareModulesEnv.ps1' `
     ) `
-	-Force `
 ;
+
+Import-Module 'ITG.WinAPI.UrlMon' -Force;
 
 'test\logo.jpg' `
 , 'test\logo2.jpg' `
