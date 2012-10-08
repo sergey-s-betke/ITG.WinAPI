@@ -9,7 +9,6 @@ Import-Module `
         -Path ( ( [System.IO.FileInfo] ( $MyInvocation.MyCommand.Path ) ).Directory ) `
         -ChildPath 'ITG.WinAPI' `
     ) `
-	-Force `
 ;
 
 'ITG.WinAPI.UrlMon\test\logo.jpg' `
