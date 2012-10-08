@@ -1,13 +1,6 @@
-﻿Import-Module `
-    (join-path `
-        -path $PSScriptRoot `
-        -childPath 'ITG.WinAPI.Common' `
-    ) `
-;
-
-'ITG.WinAPI.UrlMon.cs' `
+﻿'ITG.WinAPI.UrlMon.cs' `
 | % {
-    Add-CSharpType `
+    Add-Type `
         -Path (join-path `
             -path $PSScriptRoot `
             -childPath $_ `
